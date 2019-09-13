@@ -21,8 +21,8 @@ integer i, mvi
     
     i= 1                              !find the length radius vectors of the points
     do while(i .LE. 6)
-    rvl(i)= sqrt(x(i)**2 + y(i)**2)
-    i= i + 1
+        rvl(i)= sqrt(x(i)**2 + y(i)**2)
+        i= i + 1
     end do
     
     mv= MAXVAL(rvl)                   !find the farthest from the O(0,0) point
