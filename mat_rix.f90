@@ -72,6 +72,4 @@ integer(4)            :: A(1:N,1:N), i, j, min_val, min_val_i, min_val_j
     !culmination!
     write(*,*) 'the minimal number of left triangle matrix A that', min_val, 'with indexes i=', min_val_i, ', j=', min_val_j
     
-end program mat_rix
-    
-    
+end program mat_rix   
