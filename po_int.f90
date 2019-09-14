@@ -14,8 +14,8 @@ integer i, mvi
     
     i= 1                              !remove the points in the 1, 2 and 4 quadrants
     do while(i .LE. 13)
-        if(x(i) .GT. 0) x(i)= 0
-        if(y(i) .GT. 0) y(i)= 0
+        if(x(i) .GE. 0) x(i)= 0
+        if(y(i) .GE. 0) y(i)= 0
         i= i + 1
     end do
     
