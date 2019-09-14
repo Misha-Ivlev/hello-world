@@ -1,5 +1,5 @@
-program po_int                           !rvl = radius vector length
-implicit none                            !mv  = max value
+program po_int                        !rvl = radius vector length
+implicit none                         !mv  = max value
 real(8) x(1:13), y(1:13), rvl(1:13), mv  !mvi = max value index
 integer i, mvi
 
@@ -15,6 +15,8 @@ integer i, mvi
     i= 1                              !remove the points in the 1, 2 and 4 quadrants
     do while(i .LE. 13)
         if(x(i) .GE. 0) x(i)= 0
+        if(x(i) .GE. 0) y(i)= 0
+        if(y(i) .GE. 0) x(i)= 0
         if(y(i) .GE. 0) y(i)= 0
         i= i + 1
     end do
