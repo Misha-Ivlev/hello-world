@@ -1,38 +1,26 @@
-program po_int                        !rvl = radius vector length
-implicit none                         !mv  = max value
-real(8) x(1:13), y(1:13), rvl(1:13), mv  !mvi = max value index
+program po_int                        
+implicit none
+integer, parameter :: N= 13                        
+real(8) x(1:N)/1d0,1d0,1d0,1d0,1d0,1d0,1d0,1d0,-3d0,-7d0,-2d0,0d0,10d0/
+real(8) y(1:N)/1d0,1d0,1d0,1d0,1d0,1d0,1d0,1d0,-4d0,0d0,-4d0,-5d0,-4d0/
+real(8) r(1:N), mv 
 integer i, mvi
 
-    i= 1                              !unit fill the array
-    do while(i .LE. 13)
-        write(*,*) 'add X of point P with index', i
-        read(*,*) x(i)
-        write(*,*) 'add Y of point P with index', i
-        read(*,*) y(i)
-        i= i + 1
-    end do
-    
-    i= 1                              !remove the points in the 1, 2 and 4 quadrants
-    do while(i .LE. 13)
+    do i= 1,N
         if(x(i) .GE. 0) x(i)= 0
         if(x(i) .GE. 0) y(i)= 0
         if(y(i) .GE. 0) x(i)= 0
         if(y(i) .GE. 0) y(i)= 0
-        i= i + 1
     end do
     
-    i= 1                              !find the length radius vectors of the points
-    do while(i .LE. 13)
-        rvl(i)= sqrt(x(i)**2 + y(i)**2)
-        i= i + 1
+    do i= 1,N   
+        r(i)= sqrt(x(i)**2 + y(i)**2)
     end do
     
-    mv= MAXVAL(rvl)                   !find the farthest from the O(0,0) point
-    
-    i=1                               !find the index of the farthest point                             
-    do while(i .LE. 13)
-        if(rvl(i) .EQ. mv) mvi= i
-        i= i + 1
+    mv= 0
+    do i=1,N
+        if (mv .LE. r(i)) mv= r(i)
+        if (mv .LE. r(i)) mvi= i
     end do
     
     write(*,*) 'point P with index', mvi 
