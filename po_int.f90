@@ -7,10 +7,14 @@ real(8) r(1:N), mv
 integer i, mvi
 
     do i= 1,N
-        if(x(i) .GE. 0) x(i)= 0
-        if(x(i) .GE. 0) y(i)= 0
-        if(y(i) .GE. 0) x(i)= 0
-        if(y(i) .GE. 0) y(i)= 0
+        if(x(i) .GE. 0) then 
+            x(i)= 0
+            y(i)= 0
+        end if
+        if(y(i) .GE. 0) then
+            x(i)= 0
+            y(i)= 0
+        end if
     end do
     
     do i= 1,N   
@@ -19,8 +23,10 @@ integer i, mvi
     
     mv= 0
     do i=1,N
-        if (mv .LE. r(i)) mv= r(i)
-        if (mv .LE. r(i)) mvi= i
+        if (mv .LE. r(i)) then 
+            mv= r(i)
+            mvi= i
+        end if
     end do
     
     write(*,*) 'point P with index', mvi 
