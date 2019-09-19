@@ -7,7 +7,7 @@ logical(1) L
     e= 0.0000001
     write(*,*) e
     x0= 4.7
-    gx0= sin(x0) - (x0 * cos(x0))
+    gx0= sin(x0)
     
     xm= x0
     L= .true.
@@ -29,7 +29,6 @@ logical(1) L
         
         xm= xm1
         m= m + 1
-        !if(m .GT. 40) L= .false.
     end do
 end program p96ex33
     
